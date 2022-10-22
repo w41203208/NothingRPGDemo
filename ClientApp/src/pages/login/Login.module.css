@@ -1,0 +1,38 @@
+.Login_p {
+  @apply text-base mb-1 text-white;
+}
+.Login_input {
+  @apply py-1 px-2 w-80 rounded-sm outline-none;
+}
+.Login_btn {
+  @apply py-1 px-4 w-20 text-base  border rounded-sm  min-w-fit mr-2;
+}
+.Register {
+  @apply text-black bg-gray-400  hover:text-white hover:bg-gray-600 hover:border-white;
+}
+.Login {
+  @apply text-white hover:text-black hover:bg-white hover:border-white;
+}
+.Login_btn:last-child {
+  @apply mr-0;
+}
+.header {
+  @apply flex pb-1 mb-3 text-xl font-bold text-gray-500;
+  position: relative;
+}
+.header::after {
+  bottom: 0px;
+  @apply bg-gray-300;
+  position: absolute;
+  content: '';
+  width: 25%;
+  height: 4px;
+  transform: skewX(-30deg) scaleX(0);
+  transform-origin: left;
+  transition: 0.4s all ease-in-out;
+}
+.header:hover::after {
+  transform: skewX(-30deg) scaleX(100%);
+}
+/* .control: {
+} */

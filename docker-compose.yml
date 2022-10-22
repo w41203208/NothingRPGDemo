@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  app:
+    image: game-app:dev
+    container_name: game-app
+    build:
+      context: .
+      dockerfile: dockerfile.app
+      args:
+        - PORT80=${CLIENT_PORT80}
+        - PORT443=${CLIENT_PORT443}
+      target: final
+    ports:
+      - '3022:${CLIENT_PORT80}'
+      - '3023:${CLIENT_PORT443}'
+    depends_on:
+      - db-mssql
+    stdin_open: true
+    tty: true
+  db-mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: game-db
+    #build:
+    #  context: .
+    #  dockerfile: dockerfile.mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${DATABASE_PWD}
+    ports:
+      - '1435:1433'
+    volumes:
+      - db-data:/var/opt/mssql
+
+volumes:
+  db-data:
