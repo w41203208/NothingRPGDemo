@@ -2,6 +2,12 @@
 
 Simple RPG-DEMO on web app.
 
+## Use
+
+```
+.Net Core + React + Microsoft SQL Server
+```
+
 ## Frontend - React
 
 Learning use Redux to store data.
